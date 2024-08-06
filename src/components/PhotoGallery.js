@@ -1,7 +1,7 @@
 // src/components/PhotoGallery.js
 
 import React, { useEffect, useState } from 'react';
-import { getAllPhotos } from '../service/api';
+import { getAllPhotos } from '../service/api'; // Asegúrate de que la ruta de importación sea correcta
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -83,14 +83,14 @@ const PhotoGallery = ({ token }) => {
           {randomPhotos.map((photo) => (
             <div key={photo._id} className="relative p-2">
               <img
-                src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
+                src={photo.url}
                 alt={photo.description}
                 className="w-full h-48 object-cover rounded-lg cursor-pointer transition-transform transform hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150'; // URL de la imagen de reemplazo
                 }}
-                onClick={() => window.open(`https://api-gallery-1.onrender.com/uploads/${photo.filename}`, '_blank')}
+                onClick={() => window.open(photo.url, '_blank')}
               />
               <p className="text-center text-sm mt-2">{photo.description}</p>
             </div>
@@ -105,14 +105,14 @@ const PhotoGallery = ({ token }) => {
           {photos.map((photo) => (
             <div key={photo._id} className="bg-white dark:bg-gray-800 p-2 rounded-lg shadow-md transition-transform transform hover:scale-105">
               <img
-                src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
+                src={photo.url}
                 alt={photo.description}
                 className="w-full h-32 object-cover rounded-lg cursor-pointer"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150'; // URL de la imagen de reemplazo
                 }}
-                onClick={() => window.open(`https://api-gallery-1.onrender.com/uploads/${photo.filename}`, '_blank')}
+                onClick={() => window.open(photo.url, '_blank')}
               />
               <p className="text-center text-xs mt-2">{photo.description}</p>
             </div>
