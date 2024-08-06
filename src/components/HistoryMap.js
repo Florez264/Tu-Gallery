@@ -1,5 +1,3 @@
-// src/components/PhotoMap.js
-
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet'; // Importa Leaflet
@@ -47,35 +45,37 @@ const PhotoMap = ({ token }) => {
 
   return (
     <div className="max-w-6xl mx-auto mt-8 p-4">
-      <h2 className="text-3xl font-bold mb-6 text-center">Photo Locations</h2>
-      <MapContainer
-        center={center}
-        zoom={10}
-        scrollWheelZoom={false}
-        style={{ height: '500px', width: '100%' }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {photos.map((photo) => (
-          <Marker
-            key={photo._id}
-            position={[photo.location.coordinates[1], photo.location.coordinates[0]]}
-            icon={markerIcon} // Usa el ícono personalizado aquí
-          >
-            <Popup>
-              <img
-                src={`http://localhost:3001/uploads/${photo.filename}`}
-                alt={photo.description}
-                className="w-32 h-32 object-cover"
-              />
-              <p>{photo.description}</p>
-              <p>{photo.date}</p>
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+      <h2 className="text-3xl font-bold mb-6 text-center">Lugares Visitados</h2>
+      <div className="relative w-full h-0" style={{ paddingBottom: '50%' }}>
+        <MapContainer
+          center={center}
+          zoom={10}
+          scrollWheelZoom={false}
+          style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {photos.map((photo) => (
+            <Marker
+              key={photo._id}
+              position={[photo.location.coordinates[1], photo.location.coordinates[0]]}
+              icon={markerIcon}
+            >
+              <Popup>
+                <img
+                  src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
+                  alt={photo.description}
+                  className="w-32 h-32 object-cover"
+                />
+                <p className="text-sm mt-2">{photo.description}</p>
+                <p className="text-xs text-gray-500">{photo.date}</p>
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
     </div>
   );
 };

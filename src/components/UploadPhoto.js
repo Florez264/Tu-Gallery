@@ -71,9 +71,9 @@ const UploadPhoto = ({ token }) => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-8 p-4 bg-white dark:bg-gray-800 shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto mt-8 p-4 bg-white dark:bg-gray-800 shadow-md rounded-lg">
       <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Upload Photo</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Photo</label>
           <input

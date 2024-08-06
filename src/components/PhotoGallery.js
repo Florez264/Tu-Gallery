@@ -1,3 +1,5 @@
+// src/components/PhotoGallery.js
+
 import React, { useEffect, useState } from 'react';
 import { getAllPhotos } from '../service/api';
 import Slider from 'react-slick';
@@ -15,7 +17,6 @@ const PhotoGallery = ({ token }) => {
       try {
         const data = await getAllPhotos(token);
         setPhotos(data);
-        // Seleccionar aleatoriamente tres fotos para el carrusel
         if (data.length > 3) {
           const shuffled = data.sort(() => 0.5 - Math.random());
           setRandomPhotos(shuffled.slice(0, 3));
@@ -73,25 +74,25 @@ const PhotoGallery = ({ token }) => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto mt-8 p-4">
+    <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Photo Gallery</h2>
 
       {/* Carrusel con fotos aleatorias */}
       <div className="mb-8">
         <Slider {...settings}>
           {randomPhotos.map((photo) => (
-            <div key={photo._id} className="relative">
+            <div key={photo._id} className="relative p-2">
               <img
                 src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
                 alt={photo.description}
-                className="w-full h-48 object-cover rounded-md cursor-pointer transition-transform transform hover:scale-105"
+                className="w-full h-48 object-cover rounded-lg cursor-pointer transition-transform transform hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150'; // URL de la imagen de reemplazo
                 }}
                 onClick={() => window.open(`https://api-gallery-1.onrender.com/uploads/${photo.filename}`, '_blank')}
               />
-              <p className="text-center text-lg mt-2">{photo.description}</p>
+              <p className="text-center text-sm mt-2">{photo.description}</p>
             </div>
           ))}
         </Slider>
@@ -100,20 +101,20 @@ const PhotoGallery = ({ token }) => {
       {/* Galería completa */}
       <div>
         <h3 className="text-2xl font-bold mb-4 text-center">All Photos</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {photos.map((photo) => (
-            <div key={photo._id} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md transition-transform transform hover:scale-105">
+            <div key={photo._id} className="bg-white dark:bg-gray-800 p-2 rounded-lg shadow-md transition-transform transform hover:scale-105">
               <img
                 src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
                 alt={photo.description}
-                className="w-full h-48 object-cover rounded-md cursor-pointer"
+                className="w-full h-32 object-cover rounded-lg cursor-pointer"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150'; // URL de la imagen de reemplazo
                 }}
                 onClick={() => window.open(`https://api-gallery-1.onrender.com/uploads/${photo.filename}`, '_blank')}
               />
-              <p className="text-center text-lg mt-2">{photo.description}</p>
+              <p className="text-center text-xs mt-2">{photo.description}</p>
             </div>
           ))}
         </div>

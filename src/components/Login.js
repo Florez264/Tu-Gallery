@@ -43,22 +43,22 @@ const Login = ({ setToken }) => {
 
   return (
     <div className={`flex items-center justify-center min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-r from-pink-200 to-red-200'}`}>
-      <div className={`bg-white p-8 rounded-lg shadow-lg w-full max-w-sm ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
-        <div className="flex justify-between mb-4">
-          <div className="flex justify-center">
-            <FiHeart className="h-10 w-10 text-pink-500" />
+      <div className={`bg-white p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 rounded-lg shadow-lg w-full max-w-sm ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center">
+            <FiHeart className="h-8 w-8 sm:h-10 sm:w-10 text-pink-500" />
           </div>
           <button
             onClick={toggleDarkMode}
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
           >
-            {darkMode ? <FiSun className="h-6 w-6" /> : <FiMoon className="h-6 w-6" />}
+            {darkMode ? <FiSun className="h-5 w-5 sm:h-6 sm:w-6" /> : <FiMoon className="h-5 w-5 sm:h-6 sm:w-6" />}
           </button>
         </div>
-        <h2 className="text-2xl font-bold text-center mb-6 text-red-500">Login</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 text-red-500">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block">Email</label>
+            <label className="block text-sm sm:text-base">Email</label>
             <input
               type="text"
               placeholder="example@email.com"
@@ -69,7 +69,7 @@ const Login = ({ setToken }) => {
             />
           </div>
           <div className="mb-6">
-            <label className="block">Password</label>
+            <label className="block text-sm sm:text-base">Password</label>
             <input
               type="password"
               placeholder="********"
@@ -79,7 +79,7 @@ const Login = ({ setToken }) => {
               className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 ${darkMode ? 'border-gray-700 bg-gray-800 text-white focus:ring-pink-500' : 'border-gray-300 bg-white text-gray-900 focus:ring-pink-500'}`}
             />
           </div>
-          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          {error && <p className="text-red-500 text-center mb-4 text-sm sm:text-base">{error}</p>}
           <button
             type="submit"
             className={`w-full py-2 rounded-lg transition duration-200 ${darkMode ? 'bg-pink-600 text-white hover:bg-pink-700' : 'bg-pink-500 text-white hover:bg-pink-600'}`}
@@ -104,11 +104,11 @@ const Login = ({ setToken }) => {
             onClick={handleWelcomeMessageClick}
           >
             <div
-              className="bg-white p-6 rounded-lg shadow-lg text-center"
+              className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg text-center"
               onClick={(e) => e.stopPropagation()} // Evita que el click dentro del mensaje cierre el mensaje
             >
-              <h2 className="text-2xl font-bold text-green-500">Welcome Dani!</h2>
-              <p className="mt-2 text-gray-700">Este pequeño detalle Lo hice porque quiero que tengas un espacio donde puedas compartir y conservar todos esos momentos que son importantes para ti. Aunque no siempre estoy a tu lado, quiero que sepas cuánto te quiero y que estoy aquí para ti.
+              <h2 className="text-xl sm:text-2xl font-bold text-green-500">Welcome Dani!</h2>
+              <p className="mt-2 text-sm sm:text-base text-gray-700">Este pequeño detalle Lo hice porque quiero que tengas un espacio donde puedas compartir y conservar todos esos momentos que son importantes para ti. Aunque no siempre estoy a tu lado, quiero que sepas cuánto te quiero y que estoy aquí para ti.
 
 Cada foto y cada lugar en esta galería me hacen pensar en ti y en lo mucho que significas para mí. Mi deseo es estar a tu lado, compartir estos momentos y ser parte de tus recuerdos.
 

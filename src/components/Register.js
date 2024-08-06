@@ -29,22 +29,22 @@ const Register = () => {
 
   return (
     <div className={`flex items-center justify-center min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-r from-pink-200 to-red-200'}`}>
-      <div className={`bg-white p-8 rounded-lg shadow-lg w-full max-w-sm ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+      <div className={`bg-white p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-sm ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
         <div className="flex justify-between mb-4">
           <div className="flex justify-center">
-            <FiHeart className="h-10 w-10 text-pink-500" />
+            <FiHeart className="h-8 w-8 sm:h-10 sm:w-10 text-pink-500" />
           </div>
           <button
             onClick={toggleDarkMode}
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
           >
-            {darkMode ? <FiSun className="h-6 w-6" /> : <FiMoon className="h-6 w-6" />}
+            {darkMode ? <FiSun className="h-5 w-5 sm:h-6 sm:w-6" /> : <FiMoon className="h-5 w-5 sm:h-6 sm:w-6" />}
           </button>
         </div>
-        <h2 className="text-2xl font-bold text-center mb-6 text-red-500">Register</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 text-red-500">Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block">Username</label>
+            <label className="block text-sm sm:text-base">Username</label>
             <input
               type="text"
               placeholder="Username"
@@ -55,7 +55,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block">Password</label>
+            <label className="block text-sm sm:text-base">Password</label>
             <input
               type="password"
               placeholder="Password"
