@@ -36,7 +36,7 @@ const Navbar = ({ setToken }) => {
   };
 
   return (
-    <nav className={`bg-gradient-to-r from-blue-500 to-purple-600 p-4 flex justify-between items-center shadow-lg ${darkMode ? 'dark' : ''}`}>
+    <nav className={`bg-gradient-to-r from-blue-500 to-purple-600 p-4 flex justify-between items-center shadow-lg ${darkMode ? 'dark' : ''} relative z-50`}>
       <div className="flex items-center space-x-4">
         <button
           onClick={toggleMobileMenu}
@@ -45,7 +45,7 @@ const Navbar = ({ setToken }) => {
           ☰
         </button>
         <Link to="/" className="text-2xl font-bold text-white">
-          MyApp
+          My GAllery
         </Link>
       </div>
 
@@ -91,7 +91,7 @@ const Navbar = ({ setToken }) => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-blue-500 to-purple-600 p-4 flex flex-col items-center space-y-4">
+        <div className="lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-blue-500 to-purple-600 p-4 flex flex-col items-center space-y-4 z-50">
           <Link
             to="/gallery"
             className="text-white font-bold hover:text-yellow-300 transition duration-300 ease-in-out transform hover:scale-110"
