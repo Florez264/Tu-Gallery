@@ -112,7 +112,7 @@ const Login = ({ setToken }) => {
 
 Cada foto y cada lugar en esta galería me hacen pensar en ti y en lo mucho que significas para mí. Mi deseo es estar a tu lado, compartir estos momentos y ser parte de tus recuerdos.
 
-Espero que este pequeño regalo lo aceptes con mucho cariño y lo tengas como un recuerdo de mi. No sabes cuanto te extraño Dani ojala pueda lleganar esta galeria junto ati Te quiero con cariño Juancho !</p>
+Espero que este pequeño regalo lo aceptes con mucho cariño y lo tengas como un recuerdo de mi. No sabes cuanto te extraño Dani ojala pueda llenar esta galeria junto ati Te quiero con cariño Juancho !</p>
             </div>
           </div>
         )}
