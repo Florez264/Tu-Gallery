@@ -82,14 +82,14 @@ const PhotoGallery = ({ token }) => {
           {randomPhotos.map((photo) => (
             <div key={photo._id} className="relative">
               <img
-                src={`http://localhost:3001/uploads/${photo.filename}`}
+                src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
                 alt={photo.description}
                 className="w-full h-48 object-cover rounded-md cursor-pointer transition-transform transform hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150'; // URL de la imagen de reemplazo
                 }}
-                onClick={() => window.open(`http://localhost:3001/uploads/${photo.filename}`, '_blank')}
+                onClick={() => window.open(`https://api-gallery-1.onrender.com/uploads/${photo.filename}`, '_blank')}
               />
               <p className="text-center text-lg mt-2">{photo.description}</p>
             </div>
@@ -104,14 +104,14 @@ const PhotoGallery = ({ token }) => {
           {photos.map((photo) => (
             <div key={photo._id} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md transition-transform transform hover:scale-105">
               <img
-                src={`http://localhost:3001/uploads/${photo.filename}`}
+                src={`https://api-gallery-1.onrender.com/uploads/${photo.filename}`}
                 alt={photo.description}
                 className="w-full h-48 object-cover rounded-md cursor-pointer"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150'; // URL de la imagen de reemplazo
                 }}
-                onClick={() => window.open(`http://localhost:3001/uploads/${photo.filename}`, '_blank')}
+                onClick={() => window.open(`https://api-gallery-1.onrender.com/uploads/${photo.filename}`, '_blank')}
               />
               <p className="text-center text-lg mt-2">{photo.description}</p>
             </div>
